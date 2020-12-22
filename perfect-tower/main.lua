@@ -158,7 +158,7 @@ function compile(name, input)
 				ins("s1", node.value == "//" and "log" or node.value);
 			elseif node.type == "label" then
 				ins("b", 2);
-				ins("i4", assert(labels[node.value], "unknown label: " .. node.value));
+				ins("i4", assert(node.value == "99" or labels[node.value], "unknown label: " .. node.value));
 			else
 				assert(false, "BUG REPORT: unknown compile type: " .. node.type);
 			end
